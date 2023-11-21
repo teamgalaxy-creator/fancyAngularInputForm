@@ -1,0 +1,127 @@
+<form class="container" #myform = "ngForm" (ngSubmit) = "onSubmit(myform)">
+    <h2 class="form-heading">New Task</h2>
+
+    <div class="form-row">
+        <div class="input-container">
+            <input type="date" id="dueDate" name="dueDate" class="input-field" placeholder=" " required ngModel>
+            <label for="dueDate" class="input-label">Due Date</label>
+        </div>
+
+        <div class="input-container">
+            <input type="checkbox" id="completed" name="completed" class="input-field" placeholder=" " ngModel>
+            <label for="completed" class="input-label">Project Date Filter 30+/-</label>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="createdBy" name="createdBy" class="input-field" placeholder=" " required ngModel>
+            <label for="createdBy" class="input-label">Created By</label>
+        </div>
+
+        
+    </div>
+
+    <div class="form-row">
+        <div class="input-container">
+            <select id="client" name="client" class="input-field" required ngModel>
+                <option value="">Select a client</option>
+                <optgroup label="Clients">
+                   <option value="1">Client 1</option>
+                     <option value="2">Client 2</option>
+                </optgroup>
+            </select>
+            <label for="client" class="input-label">Client</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="input-container">
+            <input type="text" id="project" name="project" class="input-field" placeholder=" " required ngModel>
+            <label for="project" class="input-label">Project</label>
+        </div>
+    </div>
+        <div class="form-row">
+        <div class="input-container">
+            <input type="text" id="taskName" name="taskName" class="input-field" placeholder=" " required ngModel>
+            <label for="taskName" class="input-label">Task</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="input-container">
+            <select id="status" name="status" class="input-field" required ngModel>
+                <option value="">Select status</option>
+               <option value="1">Status 1</option>
+                     <option value="2">Status 2</option>
+            </select>
+            <label for="status" class="input-label">Status</label>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="assignee" name="assignee" class="input-field" placeholder=" " ngModel>
+            <label for="assignee" class="input-label">Assignee</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="input-container">
+            <select id="taskType" name="taskType" class="input-field" required ngModel>
+                <option value="">Select task type</option>
+                <option value="1">Task Type 1</option>
+                     <option value="2">Task Type 2</option>
+            </select>
+            <label for="taskType" class="input-label">Task Type</label>
+        </div>
+
+        <div class="input-container">
+            <select id="priority" name="priority" class="input-field" required ngModel>
+                <option value="">Select priority</option>
+                <option value="1">Priority 1</option>
+                     <option value="2">Priority 2</option>
+            </select>
+            <label for="priority" class="input-label">Priority</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="input-container input-container-fullwidth">
+            <textarea id="notes" name="notes" class="input-field" rows="3" placeholder=" "  ngModel></textarea>
+            <label for="notes" class="input-label">Notes</label>
+        </div>
+        <div class="input-container input-container-fullwidth">
+            <textarea id="emailnotes" name="emailnotes" class="input-field" rows="3" placeholder=" "  ngModel></textarea>
+            <label for="emailnotes" class="input-label">Email Notes</label>
+        </div>
+    </div>
+
+    <div *ngIf="state === 'submitted'" class="success-message">
+        <h2>Submitted successfully!</h2>   
+    </div>
+
+
+<!-- if state is error show error message -->
+<div *ngIf="state === 'error'" class="error-message">
+    <h2 style="color: red;">{{ error }}</h2>
+</div>
+    
+
+    <div class="form-row">
+        <div class="flex-[2]" ></div>
+        <div class="flex justify-end">
+            <a [routerLink]="['/view-all-tasks']" class="button">View Data</a>
+        </div>
+        <div class="flex-1" ></div>
+        <div class="flex justify-end">
+            <button type="submit" class="button">Save</button>
+        </div>
+    </div>
+</form>
+
+<!-- if state is active show loading overlay -->
+<div *ngIf="state === 'active'" class="loading-overlay">
+    <div class="loading-spinner"></div>
+</div>
+
+
+
+
+

@@ -1,0 +1,222 @@
+/* Additional CSS for the cut-out label effect and soft edges */
+.input-container {
+    position: relative;
+    margin-bottom: 10px;
+    background: white;
+    width: 100%;
+    display: flex;
+  }
+  
+  .input-field {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Soft rounded edges for the border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft edge shadow */
+    transition: border-color 0.2s;
+    outline: none;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  .input-field:focus {
+    border-color: #007bff;
+  }
+  
+  .input-label {
+    position: absolute;
+    top: -0.6em; /* Adjust this value as needed */
+    left: 5px;
+    padding: 0 10px;
+    background: white;
+    color: #999;
+    transition: all 0.2s;
+    font-size: 0.85em;
+  }
+  
+  .input-field:focus + .input-label,
+  .input-field:not(:placeholder-shown) + .input-label {
+    color: dimgray;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    background-color: maroon;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #800000;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Style for the select element to match the text inputs */
+  select.input-field {
+    -webkit-appearance: none; /* Removes default styling on iOS */
+    -moz-appearance: none;
+    appearance: none;
+    background: white;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    cursor: pointer;
+  }
+  
+  /* Style adjustments for textarea to match other input fields */
+  textarea.input-field {
+    resize: vertical; /* Allow vertical resize only */
+  }
+
+  .input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label,
+.select:focus + .input-label,
+.select:not(:placeholder-shown) + .input-label {
+  color: dimgray;
+}
+
+.form-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    flex: 1;
+   
+    margin-right: 20px; /* Spacing between inline elements */
+  }
+  
+  .input-container:last-child {
+    margin-right: 0;
+  }
+
+  .container {
+    width: 80vw;
+  }
+  
+
+input[type="checkbox"] {
+    display: none;
+  }
+  
+  input[type="checkbox"] + label {
+    position: relative;
+    margin-top: 1em;
+    padding-left: 1.95em;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 1.7;
+    align-items: center;
+    display: flex;
+    
+    justify-content: center;
+    
+  }
+  
+  input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    transition: all 0.2s;
+  }
+  
+  input[type="checkbox"]:checked + label:before {
+    background: dimgray;
+    border-color: gray;
+  }
+  
+  input[type="checkbox"]:checked + label:after {
+    content: "\2713";
+    position: absolute;
+    top: 0.1em;
+    left: 0.25em;
+    color: #fff;
+    transition: all 0.2s;
+  }
+  
+  input[type="checkbox"]:focus + label:before {
+    border-color: dimgray;
+  }
+  
+  input[type="checkbox"]:disabled + label {
+    color: #aaa;
+    cursor: auto;
+  }
+  
+  input[type="checkbox"]:disabled + label:before {
+    box-shadow: inset 0 0 0 0.25em #fff;
+    border-color: #aaa;
+    background: #ccc;
+  }
+  
+  input[type="checkbox"]:checked:disabled + label:before {
+    background: #999;
+    border-color: #999;
+  }
+  
+  input[type="checkbox"]:checked:disabled + label:after {
+    color: #666;
+  }
+  
+  input[type="checkbox"] + label:before {
+    border-radius: 4px;
+  }
+  
+  input[type=" checkbox"] + label:after {
+    font-size: 0.8em;
+    line-height: 1;
+  }
+
+  .flex-1{
+    flex: 1;
+  }
+
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .loading-overlay .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 5px solid #ccc;
+        border-top-color: #333;
+        animation: spin 1s infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
