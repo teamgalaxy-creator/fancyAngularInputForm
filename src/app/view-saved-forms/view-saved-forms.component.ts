@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import axios from 'axios';
 import { JsonToTableModule } from 'json-to-table-com';
+import { backendURL } from '../app.config';
 
 @Component({
   selector: 'app-view-saved-forms',
@@ -16,7 +17,7 @@ export class ViewSavedFormsComponent {
   error = null;
 
   constructor() {
-    axios.get('http://localhost:4201/getData').then((response) => {
+    axios.get(`${backendURL}/getData`).then((response) => {
       this.data = response.data;
     }).catch((error) => {
       this.error = error;
